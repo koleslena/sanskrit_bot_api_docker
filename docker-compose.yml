@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  api:
+    build:
+      context: https://github.com/koleslena/sanskrit-api.git#main
+    container_name: sanskrit_api
+    restart: always
+    environment:
+      - PYTHONUNBUFFERED=1
+
+  bot:
+    build:
+      context: https://github.com/koleslena/SanskritBot.git#aiogram_version
+    container_name: sanskrit_bot
+    depends_on:
+      - api
+    restart: always
+    environment:
+      - API_URL=${API_URL}
+      - SANSBOT_TOKEN=${SANSBOT_TOKEN}
+      - PYTHONUNBUFFERED=1
