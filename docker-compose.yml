@@ -3,7 +3,7 @@ version: '3.8'
 services:
   api:
     build:
-      context: https://github.com/koleslena/sanskrit-api.git#main
+      context: https://github.com/koleslena/sanskrit_api.git#main
     container_name: sanskrit_api
     restart: always
     environment:
